@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+
+<body class="container-fluid d-flex min-vh-100 flex-column flex-grow-0">
+
+    <header class="bg-primary py-1 row border-bottom border-4 border-warning">
+        <div class="container">
+        </div>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <img src="/img/logoIfam.png" alt="logoIfam" class="img img-fluid mx-3 p-1" style="width:300px">
+                
+                <div class="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav fs-4">
+                            <li class="nav-item">
+                            <a class="nav-link  text-hover" aria-current="page" href="#">Inicio</a>
+                            </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link  text-hover" href="#">Produto</a>
+                            </li>
+
+                            <li class="nav-item ">
+                            <a class="nav-link text-hover" href="#">Sobre</a>
+                            </li>
+
+                            <li class="nav-item r">
+                            <a class="nav-link  text-hover" href="#">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="d-flex flex-row flex-grow-1 row">
+        <div class="col-2 m-0 p-1">
+            <div class="d-flex flex-column flex-shrink-0 p-3 h-100 rounded-2">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#"></use></svg>
+                <span class="fs-3 fw-bold text-uppercase">Sistema de manutenção</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column gap-3 h-100">
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder" aria-current="page">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Usuário
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Identificação
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Analisé
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Projeto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Implementação
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Teste de Sistema
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
+                        Teste de Aceite
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-success w-100 fw-bolder">
+                        <svg class="bi me-2" width="0" height="16"><use xlink:href="#"></use></svg>
+                        Entrega
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr>
+            </div>
+        </div>
+
+        <div class="rounded-2 my-1 col-10">
+        {{{body}}}
+        </div>
+    </main>
+
+    <footer  class="bg-primary py-1 row border-top border-2 border-warning">
+        <div class="container">
+            <p class="m-0 text-center text-uppercase text-white fw-normal">Sistema para controle e manutenção de software</p>
+        </div>
+    </footer>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
