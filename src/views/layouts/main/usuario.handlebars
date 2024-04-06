@@ -1,2 +1,31 @@
-<h1>{{mensagem}}</h1> 
+<div class="m-4">
+    <div class="d-flex flex-row  justify-content-between">
+        <button class="btn btn-success">Novo Usuário</button>
 
+        <div class="d-flex flex-row">
+            <input type="text" class="form-control" placeholder="Pesquisar por usuário">
+            <button class=" btn btn-outline-primary mx-2">Buscar</button>
+        </div>
+    </div>
+
+    <div class="h-100">
+        <table id="usuarios" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Login</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script defer src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+<script defer src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
+<script defer src="/js/dataTable.js"></script>

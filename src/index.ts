@@ -45,7 +45,8 @@ app.use("/html", express.static(`${__dirname}/../public/html`));
 app.use("/css", express.static(`${__dirname}/../public/css`));
 app.use("/js", [
     express.static(`${__dirname}/../public/js`),
-    express.static(`${__dirname}/../node_modules/bootstrap/dist/js/`)
+    express.static(`${__dirname}/../node_modules/bootstrap/dist/js/`),
+    express.static(`${__dirname}/../node_modules/datatables.net/js/`)
 ]);
 app.use("/img", express.static(`${__dirname}/../public/img`));
 

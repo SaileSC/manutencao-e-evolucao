@@ -1,22 +1,52 @@
 {
-  "produtos": [
+  "usuarios": [
     {
-      "id": "2",
-      "nome": "Tablet Sansung Galaxy",
-      "preco": 4000,
-      "estoque": 50
+      "id": "6",
+      "login": "Elias",
+      "nome": "Elias Santos",
+      "email": "elias@gmail.com"
     },
     {
       "id": "3",
-      "nome": "Monitor Dell DMD",
-      "preco": 2500,
-      "estoque": 120
+      "login": "Joana",
+      "nome": "Joana Ribeiro",
+      "email": "joana@gmail.com"
     },
     {
-      "id": "3a55",
-      "nome": "Celular Sansung M34",
-      "preco": "1700",
-      "estoque": "12"
+      "id": "4",
+      "login": "Ana",
+      "nome": "Ana Beatriz",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": "1",
+      "login": "joao123",
+      "nome": "João",
+      "email": "joao@example.com"
+    },
+    {
+      "id": "6",
+      "login": "Elias",
+      "nome": "Elias Santos",
+      "email": "elias@gmail.com"
+    },
+    {
+      "id": "3",
+      "login": "Joana",
+      "nome": "Joana Ribeiro",
+      "email": "joana@gmail.com"
+    },
+    {
+      "id": "4",
+      "login": "Ana",
+      "nome": "Ana Beatriz",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": "1",
+      "login": "joao123",
+      "nome": "João",
+      "email": "joao@example.com"
     }
   ]
 }
