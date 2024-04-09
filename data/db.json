@@ -47,6 +47,54 @@
       "login": "joao123",
       "nome": "João",
       "email": "joao@example.com"
+    },
+    {
+      "id": "6",
+      "login": "Elias",
+      "nome": "Elias Santos",
+      "email": "elias@gmail.com"
+    },
+    {
+      "id": "3",
+      "login": "Joana",
+      "nome": "Joana Ribeiro",
+      "email": "joana@gmail.com"
+    },
+    {
+      "id": "4",
+      "login": "Ana",
+      "nome": "Ana Beatriz",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": "1",
+      "login": "joao123",
+      "nome": "João",
+      "email": "joao@example.com"
+    },
+    {
+      "id": "6",
+      "login": "Elias",
+      "nome": "Elias Santos",
+      "email": "elias@gmail.com"
+    },
+    {
+      "id": "3",
+      "login": "Joana",
+      "nome": "Joana Ribeiro",
+      "email": "joana@gmail.com"
+    },
+    {
+      "id": "4",
+      "login": "Ana",
+      "nome": "Ana Beatriz",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": "1",
+      "login": "joao123",
+      "nome": "João",
+      "email": "joao@example.com"
     }
   ]
 }
