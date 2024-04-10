@@ -3,13 +3,13 @@
     <div class="d-flex flex-row  justify-content-between">
         <button class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#novoUsuario">Novo Usuário</button>
 
-        <form class="d-flex flex-row" action="/usuario/buscar" method="get">
+        <form class="d-flex flex-row" action="/usuario" method="post">
             <select class="form-select w-40 mx-1" name="tipoReq" id="tipo">
                 <option value="nome">Nome</option>
                 <option value="login">Login</option>
                 <option value="todos">Todos</option>
             </select>
-            <input type="text" class="form-control" placeholder="Pesquisar por usuário">
+            <input type="text" class="form-control" name="busca" placeholder="Pesquisar por usuário" id="inputBusca" required>
             <button class=" btn btn-outline-primary mx-1" type="submit" >Buscar</button>
         </form>  
     </div>

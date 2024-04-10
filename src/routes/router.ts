@@ -5,6 +5,7 @@ const router = Router();
 
 router.get("/", mainControler.index)
 router.get("/usuario", mainControler.usuario)
+router.post("/usuario", mainControler.usuario)
 router.get("/identificacao", mainControler.identificacao)
 router.get("/analise", mainControler.analise)
 router.get("/projeto", mainControler.projeto)

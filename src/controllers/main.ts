@@ -6,24 +6,48 @@ const index = (req:Request, res: Response) => {
     });
 }
 
-const usuario = (req:Request, res: Response) => {
-    fetch('http://localhost:3355/usuarios')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Ocorreu um erro ao obter os dados');
-        }
-        return response.json();
-    })
-    .then(usuarios => {
-        res.render("main/usuario", {
-            usuarios
+const usuario = async (req:Request, res: Response) => {
+    const request = async (end: string = "") => {
+        try {
+            const response = await fetch(`http://localhost:3355/usuarios/${end}`);
+            
+            if (!response.ok) {
+                res.render("main/usuario");
 
-        });
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
+                throw new Error("Erro ao acessar API");
+            }
+            const usuarios = await response.json();
+            res.render("main/usuario", { usuarios });
+        } catch (err) {
+            console.error("Erro:", err);
+        }
+    }
+    
+
+    if(req.method == "GET"){
+        res.render("main/usuario");
+    }else if(req.method == "POST"){
+
+        if(req.body.tipoReq == "todos"){
+            await request()
+        }else{
+            await request(req.body.busca)
+        }
+        
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 const identificacao = (req:Request, res: Response) => {
     res.render("main/identificacao");
@@ -49,5 +73,6 @@ const testeAceite = (req:Request, res: Response) => {
 const entrega = (req:Request, res: Response) => {
     res.render("main/entrega");
 }
+
 
 export default {index, usuario, identificacao, analise, projeto, implementacao, testeSistema, testeAceite, entrega}

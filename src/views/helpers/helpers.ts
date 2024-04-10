@@ -1,8 +1,10 @@
 import { Usuario } from "./helpersType";
 
 const inserirUsuarios = (usuarios:Usuario[]) => {
-    if(usuarios){
-        const lista = usuarios.map((usuario) => {
+    const usuariosArray = Array.isArray(usuarios) ? usuarios : (usuarios ? [usuarios] : []);
+
+    if(usuariosArray){
+        const lista = usuariosArray.map((usuario) => {
             return `<tr>
                 <td>${usuario.nome}</td>
                 <td>${usuario.login}</td>

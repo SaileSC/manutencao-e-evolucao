@@ -1,10 +1,6 @@
 const estadoPaginacao = (dataTable) => {
     const rowCount = dataTable.rows().count();
     const dtPaging = document.querySelector(".dt-paging");
-
-    console.log(dtPaging)
-    console.log(rowCount)
-
     if (rowCount > 8) {
         dtPaging.style.display = "block";
     } else {
@@ -29,7 +25,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
-
-
-
