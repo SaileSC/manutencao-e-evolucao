@@ -6,6 +6,9 @@ import logger from "./middlewares/logger";
 import router from "./routes/router";
 import { engine } from "express-handlebars";
 import sass from "node-sass-middleware";
+import flash from "connect-flash";
+import session from "express-session"
+import { User } from "./interfaces/user";
 
 dotenv.config();
 envalidEnv();
@@ -51,6 +54,26 @@ app.use("/js", [
 ]);
 app.use("/img", express.static(`${__dirname}/../public/img`));
 
+//config session
+app.use(session({
+    secret: "joaoCanaBrava", 
+    resave: false,
+    saveUninitialized: false,
+}));
+
+//interface user para session
+declare module 'express-session' {
+    interface SessionData {
+      user?: User
+    }
+  }
+  
+
+
+//configuração de connect-flash
+app.use(flash())
+
+//rotas do app
 app.use(router);
 
 app.use((req, res) =>{

@@ -28,6 +28,12 @@
                 {{{inserirUsuarios usuarios}}}
             </tbody>
         </table>
+        <div class="py-2  text-center text-danger fw-medium">
+            {{{error}}}
+        </div>
+        <div class="py-2  text-center text-success fw-medium">
+            {{{mensagem}}}
+        </div>
     </div>
 </div>
 
@@ -37,32 +43,32 @@
         <button type="button" class="btn-close  btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body border-top border-3">
-        <form class="d-flex  flex-column gap-3 m-1 p-3 border rounded-3">
+        <form class="d-flex  flex-column gap-3 m-1 p-3 border rounded-3" method="post" action="/usuario/inserir">
             <div class="form-group row">
                 <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="nome" placeholder="Nome" required>
+                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="login" class="col-sm-2 col-form-label" placeholder="example@email.com">Login</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="login" placeholder="Login" required>
+                <input type="text" class="form-control" id="login" placeholder="Login" name="login" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="senha" class="col-sm-2 col-form-label" placeholder="example@email.com">Senha</label>
                 <div class="col-sm-10">
-                <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="examplo@email.com" required>
+                <input type="email" class="form-control" id="email" placeholder="examplo@email.com" name="email" required>
                 </div>
             </div>
 
