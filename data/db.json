@@ -18,5 +18,28 @@
       "nome": "Ana Beatriz",
       "email": "ana@gmail.com"
     }
+  ],
+
+  "requisicoes": [
+    {
+      "numero_requisicao": "1",
+      "data": "12/04/2000",
+      "nome_solicitante": "Jonas",
+      "nome_sistema": "Compra",
+      "descricao_requisicao": "Aparece um erro x",
+      "status_requisicao": "1",
+      "anexo": "um arquivo de imagem ",
+      "fechamento": "vazio"
+    },
+    {
+      "numero_requisicao": "2",
+      "data": "12/04/2000",
+      "nome_solicitante": "Jonas",
+      "nome_sistema": "Compra",
+      "descricao_requisicao": "Aparece um erro x",
+      "status_requisicao": "1",
+      "anexo": "um arquivo de imagem ",
+      "fechamento": "vazio"
+    }
   ]
 }

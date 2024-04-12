@@ -3,29 +3,9 @@ const selected = (id) =>{
     btns.classList.replace("btn-outline-success", "btn-success") 
 }
 
-const path = window.location.pathname + window.location.search;
+let path = window.location.pathname + window.location.search;
+path = path.split('/').slice(0, 2).join('/');
 let pageId = path.replace("/", "page")
 selected(pageId);
 
-const validarBusca = () => {
-    const tipo = document.getElementById("tipo");
-    var inputBusca = document.getElementById('inputBusca');
-    if(tipo.value == "todos"){
-        inputBusca.required = false;
-        inputBusca.disabled = true;
-        inputBusca.value = "Todos selecionados";
 
-    }else{
-        inputBusca.required = true;
-        inputBusca.disabled = false;
-        inputBusca.value = "";
-
-
-    }
-}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const select = document.getElementById("tipo");
-    select.addEventListener("change", validarBusca);
-});

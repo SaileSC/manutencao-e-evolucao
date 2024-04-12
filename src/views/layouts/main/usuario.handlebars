@@ -1,7 +1,7 @@
 <div>
 <div class="m-4 p-3">
     <div class="d-flex flex-row  justify-content-between">
-        <button class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#novoUsuario">Novo Usuário</button>
+        <a class="btn btn-outline-success fw-bolder" href="/usuario/criar">Novo Usuário</a>
 
         <form class="d-flex flex-row" action="/usuario" method="post">
             <select class="form-select w-40 mx-1" name="tipoReq" id="tipo">
@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{{inserirUsuarios usuarios}}}
+                {{{mostrarUsuarios usuarios}}}
             </tbody>
         </table>
         <div class="py-2  text-center text-danger fw-medium">
@@ -37,48 +37,7 @@
     </div>
 </div>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="novoUsuario" aria-labelledby="offcanvasDarkNavbarLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Adicionar Novo Usuário</h5>
-        <button type="button" class="btn-close  btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body border-top border-3">
-        <form class="d-flex  flex-column gap-3 m-1 p-3 border rounded-3" method="post" action="/usuario/inserir">
-            <div class="form-group row">
-                <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" required>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <label for="login" class="col-sm-2 col-form-label" placeholder="example@email.com">Login</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="login" placeholder="Login" name="login" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="senha" class="col-sm-2 col-form-label" placeholder="example@email.com">Senha</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="examplo@email.com" name="email" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-sm-10">
-                <button type="submit" class="btn btn-outline-success">Enviar</button>
-            </div>
-            </div>
-        </form>
-    </div>
 </div>
 </div>
 
@@ -86,4 +45,5 @@
 <script defer src="/js/dataTables.js"></script>
 <script defer src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
 <script defer src="/js/dataTableT.js"></script>
+<script defer src="/js/userPage.js"></script>
  
