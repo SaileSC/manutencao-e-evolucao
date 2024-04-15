@@ -1,0 +1,54 @@
+<div class="m-5">
+    <fieldset class="d-flex flex-column gap-3 m-1 p-3 border rounded-3 w-50 justify-content-center align-content-center">
+    <legend  class="float-none w-auto">Editar Usuário</legend>
+    <form class="d-flex gap-3 flex-column" method="post" action="/usuario/editar/{{usuario.id}}">
+
+                <div class="form-group row"> 
+                    <label for="login" class="col-sm-2 col-form-label">Id:</label>
+                    <div class="col-10">
+                        <input type="hidden" name="id" value="{{usuario.id}}">
+                        <input type="text" class="form-control" id="id" value="{{usuario.id}}" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                    <div class="col-10">
+                    <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" value="{{usuario.nome}}" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="login" class="col-sm-2 col-form-label" placeholder="example@email.com">Login</label>
+                    <div class="col-10">
+                    <input type="text" class="form-control" id="login" placeholder="Login" name="login" value="{{usuario.login}}" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="senha" class="col-sm-2 col-form-label" placeholder="example@email.com">Senha</label>
+                    <div class="col-10">
+                    <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-10">
+                    <input type="email" class="form-control" id="email" placeholder="examplo@email.com" name="email" value="{{usuario.email}}" required>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <span class="text-center text-danger fw-medium pt-2">{{error}}</span>
+                </div>
+
+                <div class="form-group row justify-content-end pt-4">
+                    <div class="col-10 d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-danger me-3">Voltar</button> 
+                        <button type="submit" class="btn btn-outline-success">Enviar</button>
+                    </div>
+                </div>
+            </form>
+    </fieldset> 
+</div>

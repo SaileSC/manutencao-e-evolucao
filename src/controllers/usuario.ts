@@ -3,13 +3,13 @@ import { Request, Response } from "express";
 const usuario = async (req:Request, res: Response) => {
     const request = async (end:string = "") => {
         let stringReq = `${process.env.URL_API}/user/list`
-        
+
         if(end){
             stringReq = `${process.env.URL_API}/user/search/${end}`;
         }
+
         try {
             const response = await fetch(stringReq);
-
             if (!response.ok) {
                 res.render("main/usuario");
                 throw new Error("Erro ao acessar API");
@@ -23,11 +23,11 @@ const usuario = async (req:Request, res: Response) => {
     
 
     if(req.method == "GET"){
-        res.render("main/usuario", {
-            mensagem : req.flash("mensagem"),
-            error: req.flash("error")
-        });
-
+        const error = req.session.error;
+        const mensage = req.session.mensage;
+        req.session.error = "";
+        req.session.mensage = "";
+        res.render("main/usuario", {mensage,error});
 
     }else if(req.method == "POST"){
 
@@ -41,10 +41,10 @@ const usuario = async (req:Request, res: Response) => {
 
 const criarUsuario = async (req: Request, res: Response) => {
     if(req.method == "GET"){
-        res.render("main/sub/criarUsuario", {
-            mensagem : req.flash("mensagem"),
-            error: req.flash("error")
-        });
+        const error = req.session.error;
+        req.session.error = "";
+
+        res.render("main/usuario/criaUsuario", {error});
     }else if(req.method == "POST"){
         try {
             const response = await fetch(`${process.env.URL_API}/user`, {
@@ -57,14 +57,14 @@ const criarUsuario = async (req: Request, res: Response) => {
     
             if (!response.ok) {
                 await response.json().then(data => {
-                    req.flash("error", `Usuário não cadastrado, ${data.errosList[0]}`);
+                    req.session.error = `Usuário não cadastrado, ${data.errosList[0]}`;
                 });
                 
-                res.redirect(`/usuario`);
+                res.redirect(req.originalUrl);
                 throw new Error("Erro ao acessar API");
             }
     
-            req.flash("mensagem", "Usuário cadastrado..");
+            req.session.mensage = "Usuário cadastrado..";
             res.redirect(`/usuario`);
         } catch (err) {
             console.error("Erro:", err);
@@ -85,13 +85,14 @@ const deletarUsuario = async (req: Request, res: Response) => {
     
             if (!response.ok) {
                 await response.json().then(data => {
-                    req.flash("error", `Usuário não deletado, ${data.errosList[0]}`);
-            });
+                    req.session.error =  `Usuário não deletado, ${data.errosList[0]}`;
+                });
                 
                 res.redirect(`/usuario`);
                 throw new Error("Erro ao acessar API");
             }
-            req.flash("mensagem", "Usuário deletado com sucesso..");
+            
+            req.session.mensage =  "Usuário deletado com sucesso..";
             res.redirect(`/usuario`);
         } catch (err) {
             console.error("Erro:", err);
@@ -100,6 +101,74 @@ const deletarUsuario = async (req: Request, res: Response) => {
 }
 
 
+const alterarUsuario = async (req:Request, res:Response) => {
+    if(req.method == "GET"){
+        try {
+            const response = await fetch(`${process.env.URL_API}/user/${req.params.id}`);
+            if (!response.ok) {
+                await response.json().then(data => {
+                    req.session.error = `Usuário não existe, ${data.errosList[0]}`;
+            });
+                
+                res.redirect(`/usuario`);
+                throw new Error("Erro ao acessar API");
+            }
+            req.session.mensage = "Usuário acessado com sucesso..";
+            res.render(`main/usuario/editaUsuario`, {usuario: await response.json()});
+        } catch (err) {
+            console.error("Erro:", err);
+            
+        }
+    }else if(req.method == "POST"){
+        console.log(req.body)
+        try {
+            const response = await fetch(`${process.env.URL_API}/user`, {
+                method: "POST",
+                body: JSON.stringify(req.body),
+                headers: {
+                "Content-Type": "application/json"
+                }
+            });
+    
+            if (!response.ok) {
+                await response.json().then(data => {
+                req.session.error = `Usuário não alterado, ${data.errosList[0]}`;
+                });
+
+                res.redirect(`/usuario/editar/${req.params.id}`);
+                throw new Error("Erro ao acessar API");
+            }
 
 
-export default {usuario, criarUsuario, deletarUsuario}
+            req.session.mensage = "Usuário Alterado com sucesso..";
+            res.redirect(`/usuario`);
+        } catch (err) {
+            console.error("Erro:", err);
+        }
+    }
+}
+
+
+const detalharUsuario = async (req:Request, res:Response) => {
+    if(req.method == "GET"){
+        try {
+            const response = await fetch(`${process.env.URL_API}/user/${req.params.id}`);
+            if (!response.ok) {
+                await response.json().then(data => {
+                    req.session.error = `Erro ao acessar Usuário, ${data.errosList[0]}`;
+                });
+                
+                res.redirect(`/usuario`);
+                throw new Error("Erro ao acessar API");
+            }
+            res.render(`main/usuario/detalhaUsuario`, {usuario: await response.json()});
+        } catch (err) {
+            console.error("Erro:", err);
+            
+        }
+    }
+}
+
+
+
+export default {usuario, criarUsuario, deletarUsuario, alterarUsuario, detalharUsuario}

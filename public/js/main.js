@@ -9,3 +9,18 @@ let pageId = path.replace("/", "page")
 selected(pageId);
 
 
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const btns = document.querySelectorAll("button")
+
+    btns.forEach(btn => {
+        if(btn.textContent == "Voltar"){
+            btn.addEventListener("click", function (){
+                history.back()
+            })
+        }
+    })
+
+});

@@ -6,7 +6,6 @@ import logger from "./middlewares/logger";
 import router from "./routes/router";
 import { engine } from "express-handlebars";
 import sass from "node-sass-middleware";
-import flash from "connect-flash";
 import session from "express-session"
 import { User } from "./interfaces/user";
 
@@ -65,14 +64,12 @@ app.use(session({
 declare module 'express-session' {
     interface SessionData {
       user?: User
+      mensage?:string
+      error?:string
+      value?:number
     }
-  }
+}
   
-
-
-//configuração de connect-flash
-app.use(flash())
-
 //rotas do app
 app.use(router);
 

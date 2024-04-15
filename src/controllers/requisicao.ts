@@ -8,6 +8,7 @@ const requisicoes = async (req:Request, res:Response) =>{
             throw new Error("Erro ao acessar API");
         }
         const requisicoes = await response.json();
+        req.session.value = requisicoes.length + 1;
         res.render("main/requisicoes", { requisicoes });
     } catch (err) {
         console.error("Erro:", err);
@@ -16,7 +17,8 @@ const requisicoes = async (req:Request, res:Response) =>{
 
 
 const criarRequisicoes = (req:Request, res:Response) =>{
-    res.render("main/sub/criarRequisicao")
+    const id = req.session.value;
+    res.render("main/requisicao/criarRequisicao", {id})
 }
 
 export default {requisicoes, criarRequisicoes}

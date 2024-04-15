@@ -16,6 +16,9 @@ router.post("/usuario", usuarioControler.usuario)
 router.get("/usuario/criar", usuarioControler.criarUsuario)
 router.post("/usuario/criar", usuarioControler.criarUsuario)
 router.get("/usuario/remove/:id", usuarioControler.deletarUsuario)
+router.get("/usuario/editar/:id", usuarioControler.alterarUsuario)
+router.post("/usuario/editar/:id", usuarioControler.alterarUsuario)
+router.get("/usuario/detalhar/:id", usuarioControler.detalharUsuario)
 
 
 

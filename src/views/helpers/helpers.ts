@@ -11,9 +11,9 @@ const mostrarUsuarios = (usuarios:Usuario[]) => {
                 <td>${usuario.login}</td>
                 <td>${usuario.email}</td>
                 <td>
-                    <a href="/usuario/${usuario.id}"> <i class="bi bi-eye-fill"></i></a>
-                    <a href="/usuario/update/${usuario.id}"> <i class="bi bi-pencil-fill"></i></a>
-                    <a href="/usuario/remove/${usuario.id}"> <i class="bi bi-trash-fill"></i></a>
+                    <a href="/usuario/detalhar/${usuario.id}"> <i class="bi bi-eye-fill"></i></a>
+                    <a href="/usuario/editar/${usuario.id}"> <i class="bi bi-pencil-fill"></i></a>
+                    <a class="deleta"> <i data-id="${usuario.id}" class="bi bi-trash-fill"></i></a>
                 </td>
             </tr>`;
         });
@@ -35,7 +35,7 @@ const mostrarRequisicoes = (requisicoes: Requisicao[]) => {
             <td>${StatusRequisicao[requisicao.status_requisicao]}</td>
             <td>
                 <a href="/usuario/${requisicao.numero_requisicao}"> <i class="bi bi-eye-fill"></i></a>
-                <a href="/usuario/remove/${requisicao.numero_requisicao}"> <i class="bi bi-trash-fill"></i></a>
+                <a href="/usuario/remove/${requisicao.numero_requisicao}"> <i class="bi bi-x-circle-fill"></i></a>
             </td>
         </tr>`;
         });

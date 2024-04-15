@@ -5,13 +5,15 @@
                 <div class="row p-0 m-0 col-8">
                     <label  for="numRequisicao" class="col-3 col-form-label px-0">Número da Requisição:</label>
                     <div class="col-2 p-0">
-                        <input class="form-control align-items-center text-center" type="num" name="numero_requicisao" id="numRequisicao" disabled>
+                        <input name="numero_requicisao" value="{{id}}" hidden>
+                        <input class="form-control align-items-center text-center" type="num" name="numero_requicisao" id="numRequisicao"  value="{{id}}" disabled>
                     </div>
                 </div>
 
                 <div class="row p-0 m-0 col-4 justify-content-end">
                     <label  for="numRequisicao" class="col-2 col-form-label px-0">Data:</label>
                     <div class="col-5 p-0">
+                        <input name="numero_requicisao"  hidden>
                         <input class="form-control align-items-center text-center" type="num" name="numero_requicisao" id="numRequisicao" disabled >
                     </div>
                 </div>
@@ -20,21 +22,21 @@
             <div class="row mb-3 ">
             <label for="nomeSolicitante" class="col-2 col-form-label px-0">Nome do Solicitante:</label>
             <div class="col-10 p-0">
-                <input type="text" id="nomeSolicitante" name="nome_solicitante" class="form-control align-items-center">
+                <input type="text" id="nomeSolicitante" name="nome_solicitante" class="form-control align-items-center" required>
             </div>
         </div>
 
         <div class="row mb-3">
             <label for="nomeSistema" class="col-2 col-form-label px-0">Nome do Sistema:</label>
             <div class="col-10 p-0">
-                <input type="text" id="nomeSistema" name="nome_sistema" class="form-control align-items-center">
+                <input type="text" id="nomeSistema" name="nome_sistema" class="form-control align-items-center" required>
             </div>
         </div>
 
         <div class="row mb-3">
             <label for="DescRequisicao" class="col-2 col-form-label px-0">Descrição da Requisição <br> de Alteração:</label>
             <div class="col-10 p-0">
-                <textarea id="DescRequisicao" name="descricao_requisicao" class="form-control" rows="4" maxlength="500"></textarea>
+                <textarea id="DescRequisicao" name="descricao_requisicao" class="form-control" rows="4" maxlength="500" required></textarea>
                 <small class="text-success"><span id="countText">0</span>/500 caracteres</small>
             </div>
         </div>
@@ -42,6 +44,7 @@
         <div class="row mb-3">
             <label for="status" class="col-2 col-form-label px-0">Status da Requisição:</label>
             <div class="col-2 p-0">
+                <input name="status_requisicao" hidden>
                 <input type="text" id="status" name="status_requisicao" class="form-control align-items-center text-center" disabled value="Criada">
             </div>
         </div>
@@ -62,7 +65,7 @@
 
 
         <div class="row mt-2 justify-content-end">
-            <button class="btn btn-outline-success col-2 fw-bolder">Enviar</button>
+            <button type="submit" class="btn btn-outline-success col-2 fw-bolder">Enviar</button>
         </div>
     </form>
 </fieldset>
