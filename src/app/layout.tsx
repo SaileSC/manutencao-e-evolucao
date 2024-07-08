@@ -26,8 +26,8 @@ export default function RootLayout({
               <BootstrapClient />
             </LayoutMainPage>
             <Toast />
-            <PrivateRoute />
           </body>
+          <PrivateRoute />
         </UsersFetchProvider>
       </UserProvider>
     </html>

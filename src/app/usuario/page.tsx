@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import UserTable from "../components/UserTable/UserTable";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 type Inputs = {

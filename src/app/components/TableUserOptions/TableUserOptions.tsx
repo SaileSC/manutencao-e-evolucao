@@ -4,7 +4,7 @@ import Link from "next/link";
 import UserModalDelete from "../UserModalDelete/UserModalDelete";
 import { useState } from "react";
 
-const TableOptions = ({ id, name }: { id: number; name: string }) => {
+const TableUserOptions = ({ id, name }: { id: number; name: string }) => {
   const [modal, setModal] = useState<boolean>(false);
 
   const onCloseModal = () => {
@@ -26,11 +26,7 @@ const TableOptions = ({ id, name }: { id: number; name: string }) => {
       </Link>
 
       <Link className="deleta" href="" onClick={showModal}>
-        <i
-          data-id="${usuario.id}"
-          className="bi bi-trash-fill"
-          data-target="#exampleModal"
-        ></i>
+        <i className="bi bi-trash-fill"></i>
       </Link>
       <UserModalDelete
         show={modal}
@@ -42,4 +38,4 @@ const TableOptions = ({ id, name }: { id: number; name: string }) => {
   );
 };
 
-export default TableOptions;
+export default TableUserOptions;

@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import DataTable, { TableColumn } from "react-data-table-component";
 import "./table.scss";
-import TableOptions from "../TableOptions/TableOptions";
 import { useUsersFetchContext } from "@/app/hooks/fetch/useUsersFetchContext";
 import { UserResponseAPI } from "@/app/types/user";
+import TableUserOptions from "../TableUserOptions/TableUserOptions";
 
 type DataRow = {
   name: string;
@@ -96,7 +96,7 @@ const UserTable = ({ reqTypes }: UserTableProps) => {
         name: user.nome || "string",
         login: user.login || "string",
         email: user.email || "string",
-        actions: <TableOptions id={user.id} name={user.nome} />,
+        actions: <TableUserOptions id={user.id} name={user.nome} />,
       };
     }) || [];
 
