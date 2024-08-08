@@ -3,21 +3,19 @@
 import { createRequest } from "@/app/service/requisicoes";
 import { RequestAPI } from "@/app/types/requests";
 import { getDate } from "@/app/utils/currentDate";
-import { useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { useForm } from "react-hook-form";
 
 const CurrentDate = () => {
-  const reqparam = useSearchParams();
-  const param = reqparam.get("countRequest");
-  const numRequisicao = parseInt(param!) + 1;
+  const { id } = useParams();
 
   return (
     <input
       className="form-control text-center"
       type="text"
       id="numRequisicao"
-      value={numRequisicao}
+      value="{numRequisicao}"
       disabled
     />
   );

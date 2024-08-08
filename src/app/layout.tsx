@@ -5,6 +5,9 @@ import { Toast } from "./components/Toast/Toast";
 import LayoutMainPage from "./components/LayoutMainPage/LayoutMainPage";
 import UsersFetchProvider from "./state/UsersFetchProvider";
 import PrivateRoute from "./components/PrivateRouter";
+import MainHeader from "./components/MainHeader/MainHeader";
+import MainFooter from "./components/MainFooter/MainFooter";
+import Main from "./components/Main/Main";
 export const metadata: Metadata = {
   title: "Manutenção e Evolução de Software",
   description: "Saile Santos da Costa",
@@ -20,12 +23,9 @@ export default function RootLayout({
       <UserProvider>
         <UsersFetchProvider>
           <body>
-            <LayoutMainPage>
-              {children}
-              <Toast />
-              <BootstrapClient />
-            </LayoutMainPage>
+            {children}
             <Toast />
+            <BootstrapClient />
           </body>
           <PrivateRoute />
         </UsersFetchProvider>

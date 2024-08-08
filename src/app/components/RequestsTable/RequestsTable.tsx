@@ -1,12 +1,12 @@
 "use client";
 
-import { ModelRequestsList } from "@/app/requests/requests.model";
-import { RequestResponseAPI } from "@/app/types/requests";
 import { StatesResponse } from "@/app/types/StateResponse";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import TableRequestsOptions from "../TableRequestsOptions/TableRequestsOptions";
 import { RequestStatus } from "@/app/enums/RequestStatus";
+import { listRequests } from "@/app/service/requisicoes";
+import { RequestAPIResponse } from "@/app/types/requests";
 
 type DataRow = {
   idRequest: string;
@@ -27,12 +27,12 @@ const RequestsTable = ({ countTableRows }: RequestsTableprops) => {
     errorMessage: undefined,
   });
 
-  const [response, setResponse] = useState<RequestResponseAPI[] | null>(null);
+  const [response, setResponse] = useState<RequestAPIResponse[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await ModelRequestsList(setStateResponse);
+        const response = await listRequests();
         setResponse(response);
       } catch (err) {
         console.log(err);
@@ -76,10 +76,10 @@ const RequestsTable = ({ countTableRows }: RequestsTableprops) => {
   const data =
     response?.map((request) => {
       return {
-        idRequest: request.numero_requisicao,
-        requestername: request.nome_solicitante,
+        idRequest: request.numeroRequisicao,
+        requestername: request.nomeSolicitante,
         date: request.data,
-        status: RequestStatus[parseInt(request.status_requisicao)],
+        status: RequestStatus[parseInt(request.statusRequisicao)],
         actions: <TableRequestsOptions id={1} name="asdas" />,
       };
     }) || [];

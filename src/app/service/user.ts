@@ -14,7 +14,6 @@ const loginUser = async (user: UserLogin): Promise<UserResponseAPI> => {
     const response = await api.post(
       `/user/validarLogin/${user.login}/${user.password}`
     );
-
     return response.data;
   } catch (err) {
     throw err;
@@ -70,9 +69,18 @@ const updateUser = async (
   }
 };
 
-const searchUser = async (name: string): Promise<UserResponseAPI[]> => {
+const searchUserLogin = async (login: string): Promise<UserResponseAPI[]> => {
   try {
-    const response = await api.get(`/user/search/${name}`);
+    const response = await api.get(`/user/login/${login}`);
+    return response.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const searchUserName = async (name: string): Promise<UserResponseAPI[]> => {
+  try {
+    const response = await api.get(`/user/nome/${name}`);
     return response.data;
   } catch (err) {
     throw err;
@@ -86,5 +94,6 @@ export {
   userDetail,
   userDelete,
   updateUser,
-  searchUser,
+  searchUserName,
+  searchUserLogin,
 };

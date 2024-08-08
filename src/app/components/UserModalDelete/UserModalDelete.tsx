@@ -1,8 +1,8 @@
 "use client";
 
 import { useUsersFetchContext } from "@/app/hooks/fetch/useUsersFetchContext";
+import { listUsers, userDelete } from "@/app/service/user";
 import { StatesResponse } from "@/app/types/StateResponse";
-import { ModelUserDelete, ModelUserList } from "@/app/user/user.model";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -27,7 +27,7 @@ const UserModalDelete = ({ show, onClose, name, id }: UserModalDelete) => {
 
   const updateUserlist = async () => {
     try {
-      const response = await ModelUserList(setStateResponse);
+      const response = await listUsers();
       usersFetchContext.setUserFetch(response);
     } catch (err) {
       console.log(err);
@@ -36,7 +36,7 @@ const UserModalDelete = ({ show, onClose, name, id }: UserModalDelete) => {
 
   const deleteUser = async () => {
     try {
-      const response = await ModelUserDelete(id, setStateResponse);
+      const response = await userDelete(id);
       if (response) {
         toast.success(response.menssage);
         updateUserlist();

@@ -10,10 +10,7 @@ type LayoutMainPageProps = {
 };
 
 const LayoutMainPage = ({ children }: LayoutMainPageProps) => {
-  const pathName = usePathname();
-  return pathName == "/login" ? (
-    <div>{children}</div>
-  ) : (
+  return (
     <div className="container-fluid d-flex min-vh-100 flex-column flex-grow-0 justify-content-center align-content-center">
       <MainHeader />
       <div className=" flex-grow-1 d-flex align-content-center justify-content-center">

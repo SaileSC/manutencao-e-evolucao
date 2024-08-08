@@ -1,8 +1,8 @@
 "use client";
 
+import { updateUser } from "@/app/service/user";
 import { StatesResponse } from "@/app/types/StateResponse";
 import { UpdateUserAPI, UserResponseAPI } from "@/app/types/user";
-import { ModelUserUpdate } from "@/app/user/user.model";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -40,7 +40,7 @@ const UserDataFrame = ({ user, disabled, children }: UserDataFrameProps) => {
   }, [user, setValue]);
 
   const onSubmit: SubmitHandler<UpdateUserAPI> = async (data) => {
-    const response = await ModelUserUpdate(data, setStateResponse);
+    const response = await updateUser(data);
 
     console.log(data);
 

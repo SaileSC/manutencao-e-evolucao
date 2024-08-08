@@ -7,7 +7,6 @@ import { UserResponseAPI } from "@/app/types/user";
 import { useRouter } from "next/navigation";
 import { StatesResponse } from "@/app/types/StateResponse";
 import { useUserContext } from "@/app/hooks/user/useUserContext";
-import { ModelUserLogin } from "@/app/user/user.model";
 import { toast } from "react-toastify";
 
 type Inputs = {
@@ -59,10 +58,10 @@ const LoginForm = () => {
       errorMessage: undefined,
     }));
 
-    const response = await ModelUserLogin(
-      { login: data.login, password: data.password },
-      setStateResponse
-    );
+    const response = await userContext.login({
+      login: data.login,
+      password: data.password,
+    });
 
     setResponse(response);
   };

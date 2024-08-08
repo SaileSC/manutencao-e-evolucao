@@ -43,9 +43,7 @@ const Usuario = () => {
               id="tipo"
               {...register("tipoReq")}
             >
-              <option value="nome" selected>
-                Nome
-              </option>
+              <option value="nome">Nome</option>
               <option value="login">Login</option>
               <option value="todos">Todos</option>
             </select>

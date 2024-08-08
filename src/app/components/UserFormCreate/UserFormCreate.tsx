@@ -1,8 +1,8 @@
 "use client";
 
+import { createUser } from "@/app/service/user";
 import { StatesResponse } from "@/app/types/StateResponse";
 import { CreateUserAPI, CreateUserResponseAPI } from "@/app/types/user";
-import { ModelUserCreate } from "@/app/user/user.model";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -25,7 +25,7 @@ const UserFormCreate = () => {
 
   const onSubmit: SubmitHandler<CreateUserAPI> = async (data) => {
     try {
-      const response = await ModelUserCreate(data, setStateResponse);
+      const response = await createUser(data);
 
       if (response) {
         toast.success(response.menssage);

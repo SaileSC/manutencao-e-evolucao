@@ -2,9 +2,9 @@
 
 import UserDataFrame from "@/app/components/UserDataFrame/UserDataFrame";
 import UserModalDelete from "@/app/components/UserModalDelete/UserModalDelete";
+import { userDetail } from "@/app/service/user";
 import { StatesResponse } from "@/app/types/StateResponse";
 import { UserResponseAPI } from "@/app/types/user";
-import { ModelUserDetail } from "@/app/user/user.model";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -24,10 +24,7 @@ const Detalhar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const user = await ModelUserDetail(
-          parseInt(id as string),
-          setStateResponse
-        );
+        const user = await userDetail(parseInt(id as string));
         setResponse(user);
       } catch (error) {
         console.error("Failed to fetch user details:", error);

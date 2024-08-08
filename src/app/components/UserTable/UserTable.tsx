@@ -1,7 +1,6 @@
 "use client";
 
 import { StatesResponse } from "@/app/types/StateResponse";
-import { ModelUserList, ModelUserSearch } from "@/app/user/user.model";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import DataTable, { TableColumn } from "react-data-table-component";
@@ -9,6 +8,7 @@ import "./table.scss";
 import { useUsersFetchContext } from "@/app/hooks/fetch/useUsersFetchContext";
 import { UserResponseAPI } from "@/app/types/user";
 import TableUserOptions from "../TableUserOptions/TableUserOptions";
+import { listUsers, searchUserLogin, searchUserName } from "@/app/service/user";
 
 type DataRow = {
   name: string;
@@ -39,10 +39,12 @@ const UserTable = ({ reqTypes }: UserTableProps) => {
     const fetchData = async () => {
       try {
         let response: UserResponseAPI[] | null;
-        if (reqTypes?.tipoReq == "login" || reqTypes?.tipoReq == "nome") {
-          response = await ModelUserSearch(reqTypes.busca, setStateResponse);
+        if (reqTypes?.tipoReq == "login") {
+          response = await searchUserLogin(reqTypes.busca);
+        } else if (reqTypes?.tipoReq == "nome") {
+          response = await searchUserName(reqTypes.busca);
         } else {
-          response = await ModelUserList(setStateResponse);
+          response = await listUsers();
         }
 
         usersFetchContext.setUserFetch(response);

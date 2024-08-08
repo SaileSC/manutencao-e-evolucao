@@ -17,7 +17,7 @@ const TableRequestsOptions = ({ id, name }: { id: number; name: string }) => {
 
   return (
     <div className="d-flex w-25 flex-row  justify-content-center gap-3">
-      <Link href="/usuario/${requisicao.numero_requisicao}">
+      <Link href={`/requisicoes/detalhe/${id}`}>
         <i className="bi bi-eye-fill"></i>
       </Link>
 

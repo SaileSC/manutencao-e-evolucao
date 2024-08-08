@@ -1,6 +1,8 @@
 FROM node
 
-COPY . .
+WORKDIR /app
+
+COPY . /app
 
 ENV NEXT_PUBLIC_BACKEND_API=http://localhost:4466
 
