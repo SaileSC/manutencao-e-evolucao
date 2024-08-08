@@ -9,6 +9,11 @@
 //   fechamento: string;
 //   id: string;
 // };
+export type ResponseAPI = {
+  id: string;
+  status: string;
+  menssage: string;
+};
 
 export type RequestAPI = {
   nomeSolicitante: string;

@@ -12,13 +12,6 @@ import { useEffect, useState } from "react";
 const Detalhar = () => {
   const router = useRouter();
   const { id } = useParams();
-
-  const [stateResponse, setStateResponse] = useState<StatesResponse>({
-    isError: false,
-    isLoading: false,
-    errorMessage: undefined,
-  });
-
   const [response, setResponse] = useState<UserResponseAPI | null>();
 
   useEffect(() => {
@@ -46,11 +39,7 @@ const Detalhar = () => {
     setModal(true);
   };
 
-  return stateResponse.isLoading ? (
-    <div className="text-primary p-3 fw-bolder fs-4">
-      Usuario Sendo Carregado...
-    </div>
-  ) : (
+  return (
     <div className="m-5">
       <title>Detalhes do Usuário</title>
       <fieldset className="d-flex flex-column gap-3 m-1 p-3 border rounded-3 w-50 justify-content-center align-content-center">
@@ -114,7 +103,7 @@ const Detalhar = () => {
                 ></button>
               </div>
               <div className="modal-body">
-                Confirma a deleção do usuário:{" "}
+                Confirma a deleção do usuário:
                 <em className="fw-medium text-warning" id="usuarioModal"></em>
               </div>
               <div className="modal-footer">

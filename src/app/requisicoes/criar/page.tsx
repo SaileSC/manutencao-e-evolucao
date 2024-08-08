@@ -3,9 +3,10 @@
 import { createRequest } from "@/app/service/requisicoes";
 import { RequestAPI } from "@/app/types/requests";
 import { getDate } from "@/app/utils/currentDate";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const CurrentDate = () => {
   const reqparam = useSearchParams();
@@ -24,6 +25,8 @@ const CurrentDate = () => {
 };
 
 const Criar = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -31,8 +34,13 @@ const Criar = () => {
     formState: { errors },
   } = useForm<RequestAPI>();
 
-  const onSubmit = (data: RequestAPI) => {
-    createRequest(data);
+  const onSubmit = async (data: RequestAPI) => {
+    const response = await createRequest(data);
+    if (response.status == "1") {
+      console.log(response.status);
+      toast.success(response.menssage);
+      router.back();
+    }
   };
 
   return (

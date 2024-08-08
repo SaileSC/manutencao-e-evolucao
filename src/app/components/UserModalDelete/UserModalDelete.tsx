@@ -1,12 +1,8 @@
 "use client";
 
-import { useUsersFetchContext } from "@/app/hooks/fetch/useUsersFetchContext";
-import { listUsers, userDelete } from "@/app/service/user";
-import { StatesResponse } from "@/app/types/StateResponse";
+import { userDelete } from "@/app/service/user";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { toast } from "react-toastify";
-import { isErrored } from "stream";
 
 type UserModalDelete = {
   show: boolean;
@@ -16,38 +12,21 @@ type UserModalDelete = {
 };
 
 const UserModalDelete = ({ show, onClose, name, id }: UserModalDelete) => {
-  const [stateResponse, setStateResponse] = useState<StatesResponse>({
-    isError: false,
-    isLoading: false,
-    errorMessage: undefined,
-  });
-
-  const usersFetchContext = useUsersFetchContext();
   const router = useRouter();
-
-  const updateUserlist = async () => {
-    try {
-      const response = await listUsers();
-      usersFetchContext.setUserFetch(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const deleteUser = async () => {
     try {
       const response = await userDelete(id);
+
       if (response) {
         toast.success(response.menssage);
-        updateUserlist();
         onClose();
         router.push("/usuario");
       }
     } catch (err) {
       console.log(err);
     }
-    if (stateResponse.isError) toast.error(stateResponse.errorMessage);
   };
+
   return (
     <div
       className={`modal fade ${show ? "show d-block" : ""}`}
