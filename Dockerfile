@@ -2,7 +2,7 @@ FROM node
 
 COPY . .
 
-ENV NEXT_PUBLIC_BACKEND_API=http://localhost:8080
+ENV NEXT_PUBLIC_BACKEND_API=http://localhost:4466
 
 RUN npm install
 
