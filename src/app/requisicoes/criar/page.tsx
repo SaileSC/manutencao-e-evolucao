@@ -2,7 +2,24 @@
 
 import { RequestResponseAPI } from "@/app/types/requests";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { useForm } from "react-hook-form";
+
+const CurrentDate = () => {
+  const reqparam = useSearchParams();
+  const param = reqparam.get("countRequest");
+  const numRequisicao = parseInt(param!) + 1;
+
+  return (
+    <input
+      className="form-control text-center"
+      type="text"
+      id="numRequisicao"
+      value={numRequisicao}
+      disabled
+    />
+  );
+};
 
 const Criar = () => {
   const {
@@ -11,8 +28,6 @@ const Criar = () => {
     watch,
     formState: { errors },
   } = useForm<RequestResponseAPI>();
-  const reqparam = useSearchParams();
-  const param = reqparam.get("countRequest");
 
   const getDate = (): string => {
     const date = new Date();
@@ -22,8 +37,6 @@ const Criar = () => {
 
     return `${day}/${month}/${year}`;
   };
-
-  const numRequisicao = parseInt(param!) + 1;
 
   const onSubmit = (data: RequestResponseAPI) => {
     console.log(data);
@@ -46,13 +59,9 @@ const Criar = () => {
               Número da Requisição:
             </label>
             <div className="col-2 p-0">
-              <input
-                className="form-control text-center"
-                type="text"
-                id="numRequisicao"
-                value={numRequisicao}
-                disabled
-              />
+              <Suspense>
+                <CurrentDate />
+              </Suspense>
             </div>
           </div>
 

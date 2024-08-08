@@ -7,9 +7,9 @@ const PrivateRoute = () => {
   const router = useRouter();
   const isAuthenticated = useUserAuth();
 
-  useEffect(() => {});
-
-  !isAuthenticated && router.push("login");
+  useEffect(() => {
+    !isAuthenticated && router.push("/login");
+  });
 
   return <></>;
 };

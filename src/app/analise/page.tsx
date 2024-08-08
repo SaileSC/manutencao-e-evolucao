@@ -1,7 +1,7 @@
 "use client";
 
 const Analise = () => {
-  return <title>Análise</title>;
+  return <title>Analise</title>;
 };
 
 export default Analise;
