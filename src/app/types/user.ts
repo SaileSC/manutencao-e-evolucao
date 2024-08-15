@@ -6,8 +6,8 @@ export type UserResponseAPI = {
 };
 
 export type UserLogin = {
-  login: string;
-  password: string;
+  senha: string;
+  email: string;
 };
 
 export type CreateUserAPI = {

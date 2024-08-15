@@ -11,9 +11,7 @@ import {
 
 const loginUser = async (user: UserLogin): Promise<UserResponseAPI> => {
   try {
-    const response = await api.post(
-      `/user/validarLogin/${user.login}/${user.password}`
-    );
+    const response = await api.post("/auth/login", user);
     return response.data;
   } catch (err) {
     throw err;
@@ -22,7 +20,7 @@ const loginUser = async (user: UserLogin): Promise<UserResponseAPI> => {
 
 const listUsers = async (): Promise<UserResponseAPI[]> => {
   try {
-    const response = await api.get("/user/list");
+    const response = await api.get("/user");
     return response.data;
   } catch (err) {
     throw err;
@@ -33,14 +31,14 @@ const createUser = async (
   user: CreateUserAPI
 ): Promise<CreateUserResponseAPI> => {
   try {
-    const response = await api.post("/user", user);
+    const response = await api.post("/auth/signup", user);
     return response.data;
   } catch (err) {
     throw err;
   }
 };
 
-const userDetail = async (id: number): Promise<UserResponseAPI> => {
+const userDetail = async (id: string): Promise<UserResponseAPI> => {
   try {
     const response = await api.get(`/user/${id}`);
     return response.data;
@@ -80,7 +78,7 @@ const searchUserLogin = async (login: string): Promise<UserResponseAPI[]> => {
 
 const searchUserName = async (name: string): Promise<UserResponseAPI[]> => {
   try {
-    const response = await api.get(`/user/nome/${name}`);
+    const response = await api.get(`/user/name/${name}`);
     return response.data;
   } catch (err) {
     throw err;

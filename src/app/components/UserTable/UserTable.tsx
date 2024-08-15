@@ -89,7 +89,7 @@ const UserTable = ({ reqTypes }: UserTableProps) => {
       cell: (row) => row.actions,
       sortable: false,
       center: true,
-      style: { justifyContent: "center" },
+      style: { justifyContent: "center", textAlign: "center" },
     },
   ];
   const data =

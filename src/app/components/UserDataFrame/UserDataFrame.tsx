@@ -112,28 +112,6 @@ const UserDataFrame = ({ user, disabled, children }: UserDataFrameProps) => {
           )}
         </div>
       </div>
-
-      {!disabled && (
-        <div className="form-group row">
-          <label htmlFor="senha" className="col-sm-2 col-form-label">
-            Senha
-          </label>
-          <div className="col-10">
-            <input
-              type="password"
-              className="form-control"
-              id="senha"
-              autoComplete="current-password"
-              placeholder="Senha"
-              {...register("senha", { required: true })}
-            />
-            {errors.senha && (
-              <span className="text-danger">Senha é obrigatória</span>
-            )}
-          </div>
-        </div>
-      )}
-
       <div className="form-group row">
         <label htmlFor="email" className="col-sm-2 col-form-label">
           Email

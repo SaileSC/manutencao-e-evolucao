@@ -15,7 +15,7 @@ export const createRequest = async (
 
 export const listRequests = async (): Promise<RequestAPIResponse[] | null> => {
   try {
-    const respose = await api.get("/request/list");
+    const respose = await api.get("/request");
     return respose.data;
   } catch (error) {
     throw error;

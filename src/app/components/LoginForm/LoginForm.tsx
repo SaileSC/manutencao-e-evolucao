@@ -10,8 +10,8 @@ import { useUserContext } from "@/app/hooks/user/useUserContext";
 import { toast } from "react-toastify";
 
 type Inputs = {
-  login: string;
-  password: string;
+  email: string;
+  senha: string;
 };
 
 const LoginForm = () => {
@@ -59,8 +59,8 @@ const LoginForm = () => {
     }));
 
     const response = await userContext.login({
-      login: data.login,
-      password: data.password,
+      email: data.email,
+      senha: data.senha,
     });
 
     setResponse(response);
@@ -78,9 +78,9 @@ const LoginForm = () => {
           placeholder="Login"
           id="login"
           autoComplete="username"
-          {...register("login", { required: true })}
+          {...register("email", { required: true })}
         />
-        {errors.login && (
+        {errors.email && (
           <span className="text-danger text-center mt-1">
             Login é obrigatório
           </span>
@@ -96,9 +96,9 @@ const LoginForm = () => {
           placeholder="Senha"
           autoComplete="current-password"
           id="password"
-          {...register("password", { required: true })}
+          {...register("senha", { required: true })}
         />
-        {errors.password && (
+        {errors.senha && (
           <span className="text-danger text-center mt-1">
             Senha é obrigatória
           </span>

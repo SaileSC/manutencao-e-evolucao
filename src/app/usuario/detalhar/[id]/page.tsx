@@ -17,7 +17,7 @@ const Detalhar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const user = await userDetail(parseInt(id as string));
+        const user = await userDetail(id as string);
         setResponse(user);
       } catch (error) {
         console.error("Failed to fetch user details:", error);
