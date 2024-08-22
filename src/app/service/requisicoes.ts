@@ -1,9 +1,14 @@
 import axios from "axios";
-import { RequestAPI, RequestAPIResponse, ResponseAPI } from "../types/requests";
+import {
+  CreateRequestAPI,
+  RequestAPI,
+  RequestAPIResponse,
+  ResponseAPI,
+} from "../types/requests";
 import api from "./api";
 
 export const createRequest = async (
-  request: RequestAPI
+  request: CreateRequestAPI
 ): Promise<ResponseAPI> => {
   try {
     const respose = await api.post("/request", request);

@@ -1,7 +1,7 @@
 "use client";
 
 import { createRequest } from "@/app/service/requisicoes";
-import { RequestAPI } from "@/app/types/requests";
+import { CreateRequestAPI, RequestAPI } from "@/app/types/requests";
 import { getDate } from "@/app/utils/currentDate";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -32,13 +32,12 @@ const Criar = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<RequestAPI>();
+  } = useForm<CreateRequestAPI>();
 
-  const onSubmit = async (data: RequestAPI) => {
+  const onSubmit = async (data: CreateRequestAPI) => {
     const response = await createRequest(data);
-    if (response.status == "1") {
-      console.log(response.status);
-      toast.success(response.menssage);
+    if (response.id) {
+      toast.success("requisição criada");
       router.back();
     }
   };
@@ -178,13 +177,6 @@ const Criar = () => {
               className="form-control text-center"
               disabled
               value="A determinar"
-            />
-
-            <input
-              type="date"
-              value=""
-              hidden
-              {...register("dataFechamento")}
             />
           </div>
         </div>
