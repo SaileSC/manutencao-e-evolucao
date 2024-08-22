@@ -29,17 +29,17 @@ const Usuario = () => {
     <div>
       <title>Usuário</title>
       <div className="m-4 p-3">
-        <div className="d-flex flex-row justify-content-between">
+        <div className="d-flex flex-row justify-content-end">
           <Link
-            className="btn btn-outline-success fw-bolder"
+            className="btn btn-outline-success fw-bolder me-3"
             href="/usuario/criar"
           >
-            Novo Usuário
+            Adicionar Usuário <i className="bi bi-plus-circle ps-1"></i>
           </Link>
 
           <form className="d-flex flex-row" onSubmit={handleSubmit(onSubmit)}>
             <select
-              className="form-select w-50 mx-1"
+              className="form-select w-50 me-1 p-2"
               id="tipo"
               {...register("tipoReq")}
             >
@@ -49,7 +49,7 @@ const Usuario = () => {
             </select>
             <input
               type="text"
-              className="form-control"
+              className="form-control "
               placeholder="Pesquisar por usuário"
               id="inputBusca"
               required
@@ -62,7 +62,7 @@ const Usuario = () => {
           </form>
         </div>
 
-        <div className="h-100">
+        <div className="h-100 mt-3">
           <UserTable reqTypes={reqType} />
         </div>
       </div>

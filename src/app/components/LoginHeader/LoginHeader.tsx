@@ -2,7 +2,7 @@
 
 const LoginHeader = () => {
   return (
-    <header className="bg-opacity-25 py-3 row bg-black">
+    <header className="py-3 row" style={{ backgroundColor: "#547467" }}>
       <div className="container">
         <p className="m-0 text-center text-uppercase text-white fw-bold fs-5">
           ifam - cmzl - sistema de controle e manutenção de software

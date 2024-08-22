@@ -16,7 +16,7 @@ const Login = () => {
           <div className="d-flex justify-content-center align-items-center flex-grow-1 ">
             <div className="col-9 col-sm-8 col-md-5 col-lg-4 col-xl-4 col-xxl-3 shadow bg-body-secondary py-4 rounded-3">
               <div className="m-0 row">
-                <div className="w-75 ms-3">
+                <div className="w-80 ms-3">
                   <Image
                     className="img-fluid"
                     src="/img/logoIfam.png"

@@ -20,7 +20,7 @@ const ButtonLink = ({ href, children }: ButtonProps) => {
       href={href}
       className={`btn btn${
         status ? "-success" : "-outline-success"
-      } w-100 fw-bolder`}
+      } w-100 fw-bold text-black p-2`}
     >
       {children}
     </Link>

@@ -18,15 +18,15 @@ const TableUserOptions = ({ id, name }: { id: number; name: string }) => {
   return (
     <div className="d-flex w-25 flex-row  justify-content-center gap-2">
       <Link href={`/usuario/detalhar/${id}`}>
-        <i className="bi bi-eye-fill"></i>
+        <i className="bi bi-eye-fill text-black fs-5"></i>
       </Link>
 
       <Link href={`/usuario/editar/${id}`}>
-        <i className="bi bi-pencil-fill"></i>
+        <i className="bi bi-pencil-fill text-black fs-5"></i>
       </Link>
 
       <Link className="deleta" href="" onClick={showModal}>
-        <i className="bi bi-trash-fill"></i>
+        <i className="bi bi-trash-fill text-black fs-5"></i>
       </Link>
       <UserModalDelete
         show={modal}

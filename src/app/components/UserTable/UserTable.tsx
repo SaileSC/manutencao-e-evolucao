@@ -88,8 +88,6 @@ const UserTable = ({ reqTypes }: UserTableProps) => {
       name: "Ações",
       cell: (row) => row.actions,
       sortable: false,
-      center: true,
-      style: { justifyContent: "center", textAlign: "center" },
     },
   ];
   const data =
@@ -110,7 +108,7 @@ const UserTable = ({ reqTypes }: UserTableProps) => {
   };
 
   const CustomNoDataComponent = () => (
-    <div style={{ padding: "24px", textAlign: "center" }}>
+    <div className=" fw-bold" style={{ padding: "24px", textAlign: "center" }}>
       Nenhum dado disponível para exibir.
     </div>
   );

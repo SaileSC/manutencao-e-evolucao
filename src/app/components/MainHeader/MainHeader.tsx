@@ -5,16 +5,38 @@ import footerStyle from "./style/footer.module.scss";
 
 const MainHeader = () => {
   return (
-    <header className="bg-primary py-1 row border-bottom border-3 border-warning">
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Image
-            src="/img/logoIfam.png"
-            alt="logoIfam"
-            className="img img-fluid mx-3 p-1"
-            width={240}
-            height={0}
-          />
+    <header className="py-0 row border-bottom border-3 border-warning">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary bg-opacity-10 border-bottom border-primary border-2">
+        <div className="container-fluid bg-opacity-10">
+          <div className="d-flex flex-row">
+            <Image
+              src="/img/if.png"
+              alt="logoIfam"
+              className="img img-fluid mx-3 p-1"
+              width={80}
+              height={0}
+            />
+
+            <div className="d-flex flex-column">
+              <div className="d-flex justify-content-around flex-grow-1 pt-1">
+                <Image
+                  src="/img/titulo.png"
+                  alt="logoIfam"
+                  className="img img-fluid mx-3 p-1"
+                  width={180}
+                  height={0}
+                />
+              </div>
+
+              <Image
+                src="/img/ifam-nome.png"
+                alt="logoIfam"
+                className="img img-fluid mx-3 p-1"
+                width={250}
+                height={0}
+              />
+            </div>
+          </div>
 
           <div className="">
             <button
