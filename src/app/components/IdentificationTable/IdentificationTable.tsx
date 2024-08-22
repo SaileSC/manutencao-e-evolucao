@@ -7,6 +7,7 @@ import TableRequestsOptions from "../TableRequestsOptions/TableRequestsOptions";
 import { RequestStatus } from "@/app/enums/RequestStatus";
 import { listRequests } from "@/app/service/requisicoes";
 import { RequestAPIResponse } from "@/app/types/requests";
+import "./table.scss";
 
 type DataRow = {
   idRequest: string;
