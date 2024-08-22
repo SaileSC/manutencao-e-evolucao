@@ -11,7 +11,7 @@ const Requisicoes = () => {
     <div>
       <div className="m-4 p-3">
         <title>Requisições</title>
-        <div className="d-flex flex-row  justify-content-between">
+        <div className="d-flex flex-row  justify-content-end mb-3 me-2">
           <Suspense>
             <Link
               className="btn btn-outline-warning fw-bolder"

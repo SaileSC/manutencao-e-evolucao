@@ -18,11 +18,11 @@ const TableRequestsOptions = ({ id, name }: { id: number; name: string }) => {
   return (
     <div className="d-flex w-25 flex-row  justify-content-center gap-3">
       <Link href={`/requisicoes/detalhe/${id}`}>
-        <i className="bi bi-eye-fill"></i>
+        <i className="bi bi-eye-fill text-black fs-5"></i>
       </Link>
 
       <Link className="deleta" href="" onClick={showModal}>
-        <i className="bi bi-x-circle-fill"></i>
+        <i className="bi bi-x-circle-fill text-black fs-5"></i>
       </Link>
     </div>
   );

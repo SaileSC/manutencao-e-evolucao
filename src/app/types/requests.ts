@@ -18,7 +18,7 @@ export type ResponseAPI = {
 export type RequestAPI = {
   nomeSolicitante: string;
   nomeSistema: string;
-  data: string;
+  dataCriacao: string;
   descricaoRequisicao: string;
   statusRequisicao: string;
   anexo: Blob;

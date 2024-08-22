@@ -2,9 +2,9 @@
 
 const MainFooter = () => {
   return (
-    <footer className="bg-primary py-1 row border-top border-2 border-warning">
+    <footer className="py-3 row" style={{ backgroundColor: "#547467" }}>
       <div className="container">
-        <p className="m-0 text-center text-uppercase text-white fw-normal">
+        <p className="m-0 text-center text-uppercase text-white fw-bold">
           Sistema para controle e manutenção de software
         </p>
       </div>

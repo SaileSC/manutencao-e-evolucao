@@ -78,8 +78,6 @@ const Criar = () => {
                 value={getDate()}
                 disabled
               />
-
-              <input value={getDate()} {...register("data")} hidden />
             </div>
           </div>
         </div>
@@ -155,27 +153,6 @@ const Criar = () => {
               <span> {watch("descricaoRequisicao")?.length || 0}</span>
               /500 caracteres
             </small>
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <label htmlFor="status" className="col-2 col-form-label px-0">
-            Status da Requisição:
-          </label>
-          <div className="col-2 p-0 ">
-            <input
-              className="form-control text-center"
-              type="text"
-              disabled
-              value="Em criação"
-            />
-
-            <input
-              type="text"
-              value={1}
-              {...register("statusRequisicao")}
-              hidden
-            />
           </div>
         </div>
 

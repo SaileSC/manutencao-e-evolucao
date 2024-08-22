@@ -20,7 +20,7 @@ type RequestsTableprops = {
   countTableRows: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const RequestsTable = ({ countTableRows }: RequestsTableprops) => {
+const IdentificationTable = ({ countTableRows }: RequestsTableprops) => {
   const [stateResponse, setStateResponse] = useState<StatesResponse>({
     isError: false,
     isLoading: false,
@@ -113,4 +113,4 @@ const RequestsTable = ({ countTableRows }: RequestsTableprops) => {
   );
 };
 
-export default RequestsTable;
+export default IdentificationTable;
