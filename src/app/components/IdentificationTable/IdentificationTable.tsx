@@ -3,11 +3,11 @@
 import { StatesResponse } from "@/app/types/StateResponse";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import TableRequestsOptions from "../TableRequestsOptions/TableRequestsOptions";
 import { RequestStatus } from "@/app/enums/RequestStatus";
 import { listRequests } from "@/app/service/requisicoes";
 import { RequestAPIResponse } from "@/app/types/requests";
 import "./table.scss";
+import TableIdentificationOptions from "../TableIdentificationOptions/TableIdentificationOptions";
 
 type DataRow = {
   idRequest: string;
@@ -80,7 +80,7 @@ const IdentificationTable = ({ countTableRows }: RequestsTableprops) => {
         requestername: request.nomeSolicitante,
         date: request.dataCriacao.split("T")[0],
         status: RequestStatus[parseInt(request.statusRequisicao)],
-        actions: <TableRequestsOptions id={1} name="asdas" />,
+        actions: <TableIdentificationOptions id={1} name="asdas" />,
       };
     }) || [];
 

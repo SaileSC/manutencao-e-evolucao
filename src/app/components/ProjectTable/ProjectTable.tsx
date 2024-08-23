@@ -8,6 +8,7 @@ import { RequestStatus } from "@/app/enums/RequestStatus";
 import { listRequests } from "@/app/service/requisicoes";
 import { RequestAPIResponse } from "@/app/types/requests";
 import "./table.scss";
+import TableIdentificationOptions from "../TableIdentificationOptions/TableIdentificationOptions";
 
 type DataRow = {
   idRequest: string;
@@ -16,6 +17,8 @@ type DataRow = {
   status: string;
   actions: React.ReactNode;
 };
+
+const tipos: string[] = ["Preventiva", "Adaptativa", "Corretiva", "Evolutiva"];
 
 type RequestsTableprops = {
   countTableRows: React.Dispatch<React.SetStateAction<number>>;
@@ -79,8 +82,8 @@ const ProjectTable = ({ countTableRows }: RequestsTableprops) => {
         idRequest: `${response.indexOf(request) + 1}`,
         requestername: request.nomeSolicitante,
         date: request.dataCriacao.split("T")[0],
-        status: RequestStatus[parseInt(request.statusRequisicao)],
-        actions: <TableRequestsOptions id={1} name="asdas" />,
+        status: tipos[parseInt(`${Math.random() * 4}`)],
+        actions: <TableIdentificationOptions id={1} name="asdas" />,
       };
     }) || [];
 

@@ -8,6 +8,7 @@ import { RequestStatus } from "@/app/enums/RequestStatus";
 import { listRequests } from "@/app/service/requisicoes";
 import { RequestAPIResponse } from "@/app/types/requests";
 import "./table.scss";
+import TableAnalysisOptions from "../TableAnalysisOptions/TableAnalysisOptions";
 
 type DataRow = {
   idRequest: string;
@@ -79,8 +80,8 @@ const AnalysisTable = ({ countTableRows }: RequestsTableprops) => {
         idRequest: `${response.indexOf(request) + 1}`,
         requestername: request.nomeSolicitante,
         date: request.dataCriacao.split("T")[0],
-        status: RequestStatus[parseInt(request.statusRequisicao)],
-        actions: <TableRequestsOptions id={1} name="asdas" />,
+        status: "Aprovado",
+        actions: <TableAnalysisOptions id={1} name="asdas" />,
       };
     }) || [];
 

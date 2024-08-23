@@ -31,7 +31,7 @@ const Usuario = () => {
       <div className="m-4 p-3">
         <div className="d-flex flex-row justify-content-end">
           <Link
-            className="btn btn-outline-success fw-bolder me-3"
+            className="btn btn-success fw-bolder me-3 text-black"
             href="/usuario/criar"
           >
             Adicionar Usuário <i className="bi bi-plus-circle ps-1"></i>
@@ -56,7 +56,10 @@ const Usuario = () => {
               {...register("busca")}
               disabled={watch("tipoReq") == "todos" ? true : false}
             />
-            <button className="btn btn-outline-primary mx-1" type="submit">
+            <button
+              className="btn btn-primary mx-1 fw-bold text-black"
+              type="submit"
+            >
               Buscar
             </button>
           </form>

@@ -3,10 +3,10 @@
 import { StatesResponse } from "@/app/types/StateResponse";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import TableRequestsOptions from "../TableRequestsOptions/TableRequestsOptions";
 import { RequestStatus } from "@/app/enums/RequestStatus";
 import { listRequests } from "@/app/service/requisicoes";
 import { RequestAPIResponse } from "@/app/types/requests";
+import TableImplementationOptions from "../TableImplementationOptions/TableImplementationOptions";
 
 type DataRow = {
   idRequest: string;
@@ -15,6 +15,8 @@ type DataRow = {
   status: string;
   actions: React.ReactNode;
 };
+
+const progresso = ["Concluido", "Em Progresso"];
 
 type RequestsTableprops = {
   countTableRows: React.Dispatch<React.SetStateAction<number>>;
@@ -78,8 +80,8 @@ const ImplementationTable = ({ countTableRows }: RequestsTableprops) => {
         idRequest: `${response.indexOf(request) + 1}`,
         requestername: request.nomeSolicitante,
         date: request.dataCriacao.split("T")[0],
-        status: RequestStatus[parseInt(request.statusRequisicao)],
-        actions: <TableRequestsOptions id={1} name="asdas" />,
+        status: progresso[parseInt(`${Math.random() * 2}`)],
+        actions: <TableImplementationOptions id={1} name="asdas" />,
       };
     }) || [];
 

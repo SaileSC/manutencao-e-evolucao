@@ -8,7 +8,9 @@ import { RequestStatus } from "@/app/enums/RequestStatus";
 import { listRequests } from "@/app/service/requisicoes";
 import { RequestAPIResponse } from "@/app/types/requests";
 import "./table.scss";
+import TableImplementationOptions from "../TableImplementationOptions/TableImplementationOptions";
 
+const options = ["Entregue", "Em Progresso"];
 type DataRow = {
   idRequest: string;
   requestername: string;
@@ -79,8 +81,8 @@ const DeliveryTable = ({ countTableRows }: RequestsTableprops) => {
         idRequest: `${response.indexOf(request) + 1}`,
         requestername: request.nomeSolicitante,
         date: request.dataCriacao.split("T")[0],
-        status: RequestStatus[parseInt(request.statusRequisicao)],
-        actions: <TableRequestsOptions id={1} name="asdas" />,
+        status: options[parseInt(`${Math.random() * 2}`)],
+        actions: <TableImplementationOptions id={1} name="asdas" />,
       };
     }) || [];
 
